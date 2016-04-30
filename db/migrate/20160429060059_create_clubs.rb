@@ -8,6 +8,9 @@ class CreateClubs < ActiveRecord::Migration[5.0]
       t.string :website
       t.string :email
       t.string :phone
+      t.string :contact_person
+      t.string :contact_callsign
+      t.string :contact_email
       t.point :location
       t.timestamps
     end

@@ -24,9 +24,12 @@ ActiveRecord::Schema.define(version: 20160429060059) do
     t.string   "website"
     t.string   "email"
     t.string   "phone"
+    t.string   "contact_person"
+    t.string   "contact_callsign"
+    t.string   "contact_email"
     t.point    "location"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
 end
