@@ -38,7 +38,9 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    ansi (1.5.0)
     arel (7.0.0)
+    ast (2.2.0)
     builder (3.2.2)
     byebug (8.2.4)
     coffee-rails (4.1.1)
@@ -49,6 +51,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
+    curb (0.9.3)
     debug_inspector (0.0.2)
     declarative (0.0.7)
       uber (>= 0.0.15)
@@ -100,6 +103,9 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    oga (2.2)
+      ast
+      ruby-ll (~> 2.1)
     pg (0.18.4)
     puma (3.4.0)
     rack (2.0.0.alpha)
@@ -143,6 +149,9 @@ GEM
     representable (3.0.0)
       declarative (~> 0.0.5)
       uber (~> 0.0.15)
+    ruby-ll (2.1.2)
+      ansi
+      ast
     ruby_parser (3.8.1)
       sexp_processor (~> 4.1)
     sass (3.4.22)
@@ -190,10 +199,12 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails
+  curb
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
   listen (~> 3.0.5)
+  oga
   pg (~> 0.18)
   puma
   rails (>= 5.0.0.beta3, < 5.1)

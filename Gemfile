@@ -45,3 +45,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'trailblazer'
 gem 'trailblazer-rails'
+gem 'curb'
+gem 'oga'
