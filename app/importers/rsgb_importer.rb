@@ -15,7 +15,7 @@ class RsgbImporter
   EMAIL_RE = /\S+@\S+/
   
   def import
-    each_marker(&import_record)
+    each_marker { |m| import_record(m) }
   end
 
   def test
@@ -29,8 +29,17 @@ class RsgbImporter
     end
   end
 
+  def create_or_update(marker)
+    callsign = marker.attribute('clubcall').value
+    unless club = Club.where(callsign: callsign).first
+      club = Club.new
+    end
+    update_proc(marker, club)
+    club.save!
+  end
+  
   def import_record(marker)
-    create_or_update(marker.attribute('clubcall').value, &update_proc)
+    create_or_update(marker)
   end
 
   def print_record(marker)
@@ -50,7 +59,7 @@ class RsgbImporter
     club.contact_email = extract_contact_email(contact)
 
     if tel = marker.attribute('tel').value
-      club.phone = GlobalPhone.parse(tel, :gb).normalize
+      club.phone = GlobalPhone.normalize(tel, :gb)
     end
 
     club.location = [marker.attribute('lat').value, marker.attribute('lng').value]
